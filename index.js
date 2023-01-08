@@ -1,4 +1,4 @@
-var finances = [
+let finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
@@ -86,3 +86,29 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+let monthcount = 0;
+let netProfitLoses = 0
+let nexMnth = finances[0];
+let totalChange = 0;
+let greatProfitInc = 0;
+let greatProfitIncInd = 0;
+for(let i = 0; i < finances.length; i++) {
+    monthcount += 1;
+    netProfitLoses += finances[i][1];
+    if (i + 1 < finances.length) {
+        let change = (finances[i + 1][1] - nexMnth[1]);
+        if (change > 0 && change > greatProfitInc) {
+            greatProfitIncInd = i + 1;
+            greatProfitInc = change;
+        }
+        totalChange += change;
+    }
+    if (i + 1 < finances.length)
+        nexMnth = finances[i + 1];
+}
+console.log(monthcount);
+console.log(netProfitLoses);
+console.log(totalChange / monthcount);
+console.log(finances[greatProfitIncInd]);
+console.log(greatProfitInc);
