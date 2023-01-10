@@ -117,6 +117,6 @@ console.log(`Financial Analysis
 -------------------------------------------
 Total Months: ${monthcount}
 Total: $${netProfitLoses}
-Average  Change: $${totalChange / monthcount}
+Average  Change: $${Math.round((totalChange / monthcount) * 100) / 100}
 Greatest Increase in Profits: ${finances[greatProfitIncInd][0]} ($${greatProfitInc})
 Greatest Decrease in Profits: ${finances[grtlossInd][0]} ($${grtlossdec})`);
