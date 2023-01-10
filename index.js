@@ -93,22 +93,30 @@ let nexMnth = finances[0];
 let totalChange = 0;
 let greatProfitInc = 0;
 let greatProfitIncInd = 0;
+let grtlossdec = finances[1][1] - finances[0][1];
+let grtlossInd = 0;
 for(let i = 0; i < finances.length; i++) {
     monthcount += 1;
     netProfitLoses += finances[i][1];
     if (i + 1 < finances.length) {
         let change = (finances[i + 1][1] - nexMnth[1]);
-        if (change > 0 && change > greatProfitInc) {
+        if (change > greatProfitInc) {
             greatProfitIncInd = i + 1;
             greatProfitInc = change;
+        }
+        else if (change < grtlossdec) {
+            grtlossdec = change;
+            grtlossInd = i + 1;
         }
         totalChange += change;
     }
     if (i + 1 < finances.length)
         nexMnth = finances[i + 1];
 }
-console.log(monthcount);
-console.log(netProfitLoses);
-console.log(totalChange / monthcount);
-console.log(finances[greatProfitIncInd]);
-console.log(greatProfitInc);
+console.log(`Financial Analysis
+-------------------------------------------
+Total Months: ${monthcount}
+Total: $${netProfitLoses}
+Average  Change: $${totalChange / monthcount}
+Greatest Increase in Profits: ${finances[greatProfitIncInd][0]} ($${greatProfitInc})
+Greatest Decrease in Profits: ${finances[grtlossInd][0]} ($${grtlossdec})`);
