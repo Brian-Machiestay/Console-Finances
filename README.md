@@ -1,7 +1,7 @@
 # Console-Finances
 
 ## Description
-This project demonstrates basic understanding of javascript. It also trains on debugging dynamic frontend applications using the browser console. The link to deployed application is (here)[]
+This project demonstrates basic understanding of javascript. It also trains on debugging dynamic frontend applications using the browser console. The link to deployed application is [here](https://brian-machiestay.github.io/Console-Finances/).
 
 
 ## Features
